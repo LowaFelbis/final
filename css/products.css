@@ -1,0 +1,187 @@
+@import url("./base.css");
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+.main {
+  min-height: 100dvh;
+  padding: var(--small-font-size);
+  background-color: var(--products-color);
+  font-family: var(--form-font);
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.manga {
+  margin: 0 auto;
+  max-width: 65rem;
+  padding: 1.5rem;
+}
+
+/* Logo */
+.logo {
+  max-width: 5rem;
+  max-height: 5rem;
+}
+
+/* NAV */
+
+.nav__toggle {
+  display: none;
+}
+
+.nav__list {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* gap: 1.5rem;
+  padding: 1rem 1.5rem; */
+  list-style-type: none;
+  border: 0.2rem solid rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(1rem);
+  border-radius: var(--big-font-size);
+  box-shadow: 0 var(--smaller-font-size) 2rem rgba(0, 0, 0, 0.1);
+}
+
+.nav__item {
+  position: relative;
+}
+
+.nav__link {
+  display: block;
+  color: var(--white-color);
+  text-decoration: none;
+  padding: var(--small-font-size);
+  font-weight: var(--font-semibold);
+}
+
+.nav__item--has-dropdown > .nav__link::after {
+  content: ' ⇣';
+  font-size: var(--input-padding);
+}
+
+.nav__item--has-dropdown:hover > .nav__link::after {
+  content: ' ⇡';
+  font-size: var(--input-padding);
+}
+
+.nav__dropdown {
+  display: none;
+  position: absolute;
+  box-shadow: 0 var(--smaller-font-size) var(--normal-font-size) rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  left: var(--smaller-font-size);
+  padding: var(--smaller-font-size);
+  border-radius: var(--normal-font-size);
+}
+
+.nav__item--has-dropdown:hover .nav__dropdown {
+  display: block;
+}
+
+.nav__dropdown-item {
+  display: block;
+}
+
+.nav__dropdown-link {
+  display: block;
+  color: var(--white-color);
+  padding: var(--input-padding) var(--normal-font-size);
+  text-decoration: none;
+  font-weight: var(--font-medium);
+}
+
+.nav__link:hover,
+.nav__dropdown-link:hover {
+  background-color: var(--nav-color);
+  border-radius: var(--normal-font-size);
+}
+
+.nav__open,
+.nav__close {
+  cursor: pointer;
+}
+
+/* Manga */
+.manga__shonen,
+.manga__seinen,
+.manga__shoujo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+  gap: 1.5rem;
+  grid-auto-rows: auto;
+  grid-auto-flow: dense;
+}
+
+.manga__link {
+  text-decoration: none;
+  display: inline-block;
+  color: var(--nav-color);
+}
+
+.manga__name {
+  font-weight: var(--font-bold);
+}
+
+.manga__name:hover {
+  color: var(--ultra-violet);
+}
+
+.manga__item {
+  text-align: center;
+  max-width: 10rem;
+}
+
+.manga__image {
+  max-width: 100%;
+  max-height: 13rem;
+  border: 0.3rem solid #22223bff;
+  border-radius: var(--normal-font-size);
+  transition: transform 0.3s ease-in-out;
+}
+
+.manga__image:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+/* Breakpoints  */
+
+@media (width < 37.5rem) {
+  .nav__list {
+    display: none;
+  }
+
+  .nav__toggle {
+    display: block;
+    /* Muestra el botón de menú */
+    position: absolute;
+    top: var(--grand-font-size);
+    right: var(--grand-font-size);
+    z-index: 1;
+    font-size: var(--biggest-font-size);
+  }
+
+  .nav__list--active {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    min-width: 100%;
+    min-height: 94dvh;
+    background-color: var(--primary-color);
+  }
+
+  .nav__item,
+  .nav__dropdown {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav__dropdown {
+    position: relative;
+    transition: all 0.3s ease-in-out;
+  }
+}

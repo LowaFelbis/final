@@ -1,0 +1,7 @@
+.main {
+  min-height: 100dvh;
+  padding: var(--small-font-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
